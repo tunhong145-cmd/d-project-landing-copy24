@@ -1,0 +1,92 @@
+/* Compact Copper Dawn form presentation over the existing separate C apply route. */
+.app.copper-c-form .intro-module {
+  min-height: auto;
+  margin: 0;
+  padding: 12px var(--optical-gutter) 13px;
+  border-bottom: 1px solid var(--optical-line);
+  border-radius: 0;
+  background: var(--optical-paper);
+}
+.app.copper-c-form .intro-module::before { display: none; }
+.copper-c-form .copper-brand { margin-bottom: 6px; }
+.app.copper-c-form .intro-module h1 { margin: 0; font-size: 16px; line-height: 1.23; }
+.app.copper-c-form .intro-module h1 span { margin-top: 2px; font-size: 13px; }
+.app.copper-c-form .intro-module p { margin: 6px 0 0; }
+.copper-c-form .form-back {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--optical-line);
+  border-radius: 50%;
+  background: var(--optical-soft);
+  color: var(--optical-accent);
+  font-size: 25px;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+}
+.copper-c-form .form-amount {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px 10px 15px;
+}
+.copper-c-form .form-amount div > span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--optical-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+.copper-c-form .form-amount strong { color: var(--optical-accent); font-size: clamp(20px, 6vw, 25px); }
+.copper-c-form .form-amount .edit-amount {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 9px 3px;
+  color: var(--optical-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.copper-c-form #warning-help.is-rejected { color: var(--optical-danger); }
+.copper-c-form #form-status:empty { display: none; }
+.app.copper-c-form .form-submit {
+  position: static;
+  z-index: auto;
+  margin: 10px 0 0;
+  padding: 6px 0 0;
+  background: transparent;
+}
+.copper-c-form .form-foot {
+  padding: 0 var(--optical-gutter) max(12px, env(safe-area-inset-bottom));
+  text-align: center;
+}
+.copper-c-form .form-foot p {
+  margin: 0;
+  color: var(--optical-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.copper-c-form .success .summary { color: var(--optical-ink); margin-top: 10px; }
+.copper-c-form .success .summary strong { color: var(--optical-ink); overflow-wrap: anywhere; }
+.copper-c-form .copy-name-button {
+  display: block;
+  min-height: 44px;
+  margin: 8px auto 0;
+  padding-inline: 12px;
+  border: 1px solid var(--optical-line);
+  border-radius: var(--optical-radius);
+  color: var(--optical-accent);
+  background: var(--optical-paper);
+}
+.copper-c-form .success .line { text-decoration: none; }
+.copper-c-form .success .restart-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--optical-accent);
+  text-underline-offset: 4px;
+}

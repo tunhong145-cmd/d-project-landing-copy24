@@ -1,0 +1,399 @@
+/* K landing only. Champagne Arc keeps the existing calculator, form and transport. */
+:root {
+  --optical-ink: #2c2018;
+  --optical-muted: #635344;
+  --optical-accent: #755118;
+  --optical-line: #d8c6af;
+  --optical-outer: #eee7dc;
+  --optical-shell: #f7f2eb;
+  --optical-paper: #fcf8f2;
+  --optical-input: #f7efe4;
+  --optical-soft: #f0e8dc;
+  --optical-tint: #f4e5ca;
+  --optical-result-edge: #d7b879;
+  --optical-track: #ded1be;
+  --optical-focus: #805716;
+  --optical-danger: #9b2942;
+  --optical-gutter: 14px;
+  --optical-radius: 11px;
+  --champagne-shadow: #64431a24;
+  --champagne-panel: linear-gradient(156deg, #fcf9f5, #f6efe7);
+  --champagne-result: linear-gradient(113deg, #f0d7a9, #fbefcf 38%, #edd29f 100%);
+  --champagne-result-ink: #302012;
+  --champagne-rail: #a5762b;
+  --champagne-field: linear-gradient(170deg, var(--optical-paper), var(--optical-input));
+  --champagne-metal: linear-gradient(180deg, #fff0c3, #d5ad66);
+  --champagne-metal-ink: #322111;
+}
+
+body {
+  background: radial-gradient(ellipse at 50% 0%, var(--optical-shell), var(--optical-outer) 80%);
+  color: var(--optical-ink);
+}
+
+.app.champagne-arc {
+  width: min(100%, 462px);
+  background: var(--optical-shell);
+  box-shadow: 0 16px 55px var(--champagne-shadow);
+}
+
+.champagne-arc .copper-brand {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 7px;
+  margin: 0 0 11px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.champagne-arc .copper-brand .company-name {
+  font-size: 11px;
+  margin: 0;
+  font-weight: 650;
+  color: var(--optical-muted);
+}
+
+.champagne-arc .intro-module .company-name::after { display: none; }
+.champagne-arc .copper-service { font-weight: 750; color: var(--optical-ink); }
+.champagne-arc:has(> #calculator:not([hidden])) .copper-brand { border-inline-start: 3px solid var(--champagne-rail); padding-inline-start: 8px; }
+.champagne-arc:has(> #calculator:not([hidden])) .copper-brand .company-name { border-inline-start: 1px solid var(--optical-line); padding-inline-start: 7px; }
+
+.champagne-arc:has(> #calculator:not([hidden])) .intro-module {
+  min-height: 191px;
+  padding: max(20px, env(safe-area-inset-top)) 23px 41px;
+}
+
+.champagne-arc .intro-module .optical-hero-image { object-position: 70% 52%; }
+.champagne-arc .intro-module::before {
+  background: linear-gradient(90deg, #f7f2ebd4, #f7f2eb21 60%, transparent 79%);
+}
+
+.champagne-arc:has(> #calculator:not([hidden])) .intro-module h1 {
+  margin: 0;
+  color: var(--optical-ink);
+  font-size: clamp(27px, 8.35vw, 39px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -.037em;
+}
+.champagne-arc:has(> #calculator:not([hidden])) .intro-module h1 span {
+  color: inherit;
+  display: block;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  margin-top: 2px;
+}
+.champagne-arc:has(> #calculator:not([hidden])) .intro-module p {
+  margin-top: 8px;
+  color: var(--optical-ink);
+  font-size: 13px;
+  font-weight: 550;
+}
+.champagne-arc .intro-module p strong { white-space: nowrap; font-weight: 720; }
+
+.champagne-arc .intro-module + #calculator {
+  position: relative;
+  margin-top: -22px;
+  padding: 0 var(--optical-gutter) max(14px, env(safe-area-inset-bottom));
+}
+
+.champagne-arc .calculator-panel {
+  padding: 15px 14px 12px;
+  border: 1px solid var(--optical-line);
+  border-top-color: var(--optical-result-edge);
+  border-radius: 16px;
+  background: var(--champagne-panel);
+  box-shadow: inset 0 1px 0 #fff9, 0 5px 17px var(--champagne-shadow);
+}
+
+.champagne-arc .amount {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0 7px;
+}
+.champagne-arc .amount > label,
+.champagne-arc .term-section h2 {
+  color: var(--optical-ink);
+  font-weight: 800;
+  font-size: 16px;
+}
+.champagne-arc .amount > strong {
+  justify-self: end;
+  margin: 0;
+  padding: 5px 8px;
+  background: var(--optical-soft);
+  border: 1px solid var(--optical-line);
+  border-radius: 8px;
+  color: var(--optical-ink);
+  font-size: clamp(19px, 6vw, 29px);
+  font-weight: 900;
+  letter-spacing: -.036em;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+.champagne-arc .amount > input,
+.champagne-arc .amount > .limits { grid-column: 1 / -1; }
+.champagne-arc #amount { height: 31px; margin: 3px 0 0; }
+.champagne-arc #amount::-webkit-slider-runnable-track {
+  height: 6px;
+  background: linear-gradient(90deg, var(--champagne-rail) 0 var(--fill, 0%), var(--optical-track) var(--fill, 0%) 100%);
+  box-shadow: inset 0 1px 2px #61431a24;
+}
+.champagne-arc #amount::-webkit-slider-thumb {
+  width: 21px;
+  height: 21px;
+  margin-top: -7.5px;
+  border: 1.5px solid #ffebbb;
+  background: conic-gradient(from 24deg, #ddbd7f, #fff4d6, #c59d52, #fff1d1, #d6ad64, #ddbd7f);
+  box-shadow: 0 0 0 1px #aa7830, 0 2px 4px #74511c44;
+}
+.champagne-arc #amount::-moz-range-track { height: 6px; background: var(--optical-track); }
+.champagne-arc #amount::-moz-range-progress { height: 6px; background: var(--champagne-rail); }
+.champagne-arc #amount::-moz-range-thumb {
+  width: 18px; height: 18px; border: 1.5px solid #ffebbb;
+  background: conic-gradient(from 24deg, #ddbd7f, #fff4d6, #c59d52, #fff1d1, #d6ad64, #ddbd7f);
+  box-shadow: 0 0 0 1px #aa7830, 0 2px 4px #74511c44;
+}
+.champagne-arc .limits { font-size: 12px; color: var(--optical-muted); }
+
+.champagne-arc .term-section { margin-top: 12px; padding-top: 10px; }
+.champagne-arc .terms { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+.champagne-arc .choices button,
+.champagne-arc .purpose-section summary {
+  min-height: 42px;
+  border-radius: 9px;
+  background: var(--champagne-field);
+  border-color: var(--optical-line);
+  box-shadow: inset 0 1px 0 #fff4, 0 1px 2px var(--champagne-shadow);
+}
+.champagne-arc .terms button { padding-inline: 0; font-size: 13px; font-weight: 620; }
+.champagne-arc .choices .selected {
+  background: var(--champagne-metal);
+  border-color: #ae8340;
+  color: var(--champagne-metal-ink);
+  box-shadow: inset 0 1px 0 #fff3c9, inset 0 -1px 1px #8d5d3240, 0 2px 3px #98713a33;
+  font-weight: 850;
+}
+.champagne-arc .purpose-section { margin: 11px 0 12px; }
+.champagne-arc .purpose-section summary > span { font-weight: 760; }
+.champagne-arc .purpose-section summary > strong { white-space: nowrap; }
+.champagne-arc .purpose-section summary b { margin-inline-start: 2px; }
+
+.champagne-arc .result {
+  border-radius: 13px;
+  border-color: var(--optical-result-edge);
+  color: var(--champagne-result-ink);
+  background: var(--champagne-result);
+  box-shadow: inset 0 1px 0 #fff9;
+}
+.champagne-arc .payment-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding: 10px 8px 2px;
+  gap: 4px;
+  text-align: center;
+}
+.champagne-arc .payment-row p {
+  color: var(--champagne-result-ink);
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0 0 3px;
+}
+.champagne-arc .payment-row #payment {
+  display: block;
+  color: var(--champagne-result-ink);
+  font-weight: 900;
+  font-size: clamp(34px, 10.7vw, 52px);
+  letter-spacing: -.04em;
+  line-height: 1.05;
+}
+.champagne-arc .rate-block { display: flex; justify-content: center; align-items: baseline; gap: 4px; border: 0; padding: 0; }
+.champagne-arc .rate-block span, .champagne-arc .rate-block b { color: var(--champagne-result-ink); margin: 0; font-size: 13px; }
+.champagne-arc .rate-block b { font-weight: 800; }
+.champagne-arc .cost-details { color: var(--champagne-result-ink); margin: 0 10px 4px; }
+.champagne-arc .cost-details summary {
+  min-height: 27px;
+  gap: 5px;
+  justify-content: center;
+  color: var(--champagne-result-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.champagne-arc .cost-details .metrics { text-align: center; }
+.champagne-arc .cost-details .metrics span, .champagne-arc .cost-details .metrics b { color: var(--champagne-result-ink); }
+
+.champagne-arc #calculator .apply-dock { margin: 10px 0 0; }
+.champagne-arc .optical-activity-slot,
+.champagne-arc #calculator .apply-dock .application-notice { height: 46px; }
+.champagne-arc #calculator .apply-dock .application-notice {
+  background: var(--optical-paper);
+  border-color: var(--optical-line);
+  color: var(--optical-ink);
+  box-shadow: inset 0 1px 0 #fff4;
+  padding-inline: 9px;
+  opacity: 1;
+  visibility: visible;
+}
+.champagne-arc .optical-activity-label { color: var(--optical-ink); border-color: var(--optical-line); }
+.champagne-arc .optical-activity-label small { display: block; color: var(--optical-muted); font-size: 10px; font-weight: 550; line-height: 1.25; }
+.champagne-arc #calculator .capsule-status { color: var(--optical-muted); }
+.champagne-arc #calculator .apply-dock .notice-amount { background: var(--optical-tint); color: var(--optical-accent); }
+
+/* Match Champagne Arc while keeping K's native disclosure and band controls. */
+.champagne-arc:has(> #calculator[hidden]) .intro-module {
+  padding: 14px var(--optical-gutter);
+  border-bottom: 1px solid var(--optical-line);
+}
+.champagne-arc:has(> #calculator[hidden]) .copper-brand { margin-bottom: 6px; }
+.champagne-arc:has(> #calculator[hidden]) #back {
+  width: 44px;
+  height: 44px;
+  align-self: center;
+  border: 1px solid var(--optical-line);
+}
+.champagne-arc .amount-editor {
+  border-radius: 14px;
+  background: linear-gradient(152deg, var(--optical-paper), var(--optical-shell));
+}
+.champagne-arc .amount-editor > summary { gap: 6px; padding: 11px 13px; }
+.champagne-arc .amount-editor > summary > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  gap: 6px;
+}
+.champagne-arc .amount-editor > summary > div > span {
+  margin: 0;
+  color: var(--optical-ink);
+  font-size: 14px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+.champagne-arc .amount-editor #summary {
+  padding: 4px 8px;
+  border-radius: 7px;
+  background: var(--optical-tint);
+  font-size: 13px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.champagne-arc .amount-editor .edit-amount { display: inline-flex; align-items: center; padding-inline-start: 5px; }
+.champagne-arc .amount-editor .bands { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 11px 11px; gap: 7px; }
+.champagne-arc .amount-editor .bands button {
+  min-width: 0;
+  min-height: 44px;
+  padding: 5px 4px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.champagne-arc .amount-editor .bands button.selected {
+  background: var(--champagne-metal);
+  border-color: #ae8340;
+  color: var(--champagne-metal-ink);
+  box-shadow: inset 0 1px 0 #fff3c9, 0 1px 2px var(--champagne-shadow);
+  font-weight: 850;
+}
+.champagne-arc #form-status:empty { display: none; }
+.champagne-arc .success .summary strong { color: var(--optical-ink); overflow-wrap: anywhere; }
+
+.champagne-arc .primary {
+  min-height: 52px;
+  padding: 9px 12px;
+  border: 1px solid #a77c3a;
+  border-top-color: #fff2cc;
+  border-radius: 13px;
+  background:
+    linear-gradient(180deg, #fff7d567, transparent 24%, #ab783629 98%),
+    linear-gradient(110deg, #c59b58, #f6e4b0 27%, #ecd296 62%, #cba061);
+  color: var(--champagne-metal-ink);
+  box-shadow: inset 0 0 0 1px #faeac2cf, inset 0 -3px 0 #9b6e3a78, 0 4px 0 #94692e, 0 7px 12px #78512130;
+  font-weight: 900;
+  text-shadow: 0 1px 0 #fff2c088;
+  letter-spacing: .035em;
+  white-space: nowrap;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.champagne-arc .primary::before {
+  background: radial-gradient(ellipse at 22% 0%, #fffef6 0, #fff6d7cc 12%, transparent 50%);
+}
+.champagne-arc .primary:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: inset 0 0 0 1px #faeac2cf, inset 0 2px 4px #a9763d44, 0 1px 0 #94692e, 0 3px 6px #79532032;
+}
+.champagne-arc .primary:disabled { box-shadow: none; }
+.champagne-arc #apply { font-size: 21px; }
+.champagne-arc #calculator .disclaimer { margin: 13px 2px 0; font-size: 11px; }
+
+@media (max-width: 520px) {
+  .app.champagne-arc { width: 100%; box-shadow: none; }
+}
+@media (max-width: 360px) {
+  :root { --optical-gutter: 10px; }
+  .champagne-arc:has(> #calculator:not([hidden])) .intro-module { min-height: 167px; padding-inline: 17px; }
+  .champagne-arc .calculator-panel { padding-inline: 11px; }
+  .champagne-arc .terms { gap: 4px; }
+  .champagne-arc .terms button { font-size: 12px; }
+}
+@media (max-width: 520px) and (max-height: 740px) {
+  .champagne-arc:has(> #calculator:not([hidden])) .intro-module { min-height: 147px; padding-block: 13px 34px; }
+  .champagne-arc:has(> #calculator:not([hidden])) .intro-module h1 { font-size: clamp(26px, 7.4vw, 33px); }
+  .champagne-arc .calculator-panel { padding-block: 11px 9px; }
+  .champagne-arc .term-section { margin-top: 8px; padding-top: 7px; }
+  .champagne-arc .purpose-section { margin-block: 8px; }
+}
+@media (min-width: 521px) and (max-height: 800px) {
+  .app.champagne-arc { margin-block: 9px; }
+  .champagne-arc:has(> #calculator:not([hidden])) .intro-module { min-height: 151px; padding-block: 15px 34px; }
+  .champagne-arc:has(> #calculator:not([hidden])) .intro-module h1 { font-size: 32px; }
+  .champagne-arc .calculator-panel { padding-block: 11px 9px; }
+  .champagne-arc .choices button { min-height: 38px; }
+  .champagne-arc .term-section { margin-top: 8px; padding-top: 7px; }
+  .champagne-arc .purpose-section { margin-block: 8px; }
+  .champagne-arc .payment-row #payment { font-size: 42px; }
+  .champagne-arc .optical-activity-slot,
+  .champagne-arc #calculator .apply-dock .application-notice { height: 41px; }
+  .champagne-arc #apply { min-height: 48px; }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --optical-ink: #fff2df;
+    --optical-muted: #e0cbb2;
+    --optical-accent: #f4d498;
+    --optical-line: #765d43;
+    --optical-outer: #201a15;
+    --optical-shell: #2a211b;
+    --optical-paper: #372b22;
+    --optical-input: #423429;
+    --optical-soft: #493a2c;
+    --optical-tint: #513e2a;
+    --optical-result-edge: #9a7747;
+    --optical-track: #63513c;
+    --optical-focus: #f3ce92;
+    --optical-danger: #ffc0ca;
+    --champagne-shadow: #160d0766;
+    --champagne-rail: #cfac70;
+    --champagne-panel: linear-gradient(153deg, #3c3027, #2c231c);
+    --champagne-result: linear-gradient(115deg, #573f26, #6b4f30 43%, #493523);
+    --champagne-result-ink: #fff1ce;
+  }
+  .champagne-arc .intro-module .optical-hero-image { filter: brightness(.67) saturate(.77); }
+  .champagne-arc .intro-module::before { background: linear-gradient(90deg, #2a211bfd 0%, #2a211be4 48%, #2a211b18 82%); }
+  .champagne-arc .calculator-panel, .champagne-arc .result { box-shadow: inset 0 1px 0 #ffedcc26, 0 3px 13px var(--champagne-shadow); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .champagne-arc .primary, .champagne-arc .apply-dock .application-notice { transition: none; }
+}
+@media (forced-colors: active) {
+  .champagne-arc .primary { color: ButtonText; background: ButtonFace; border: 2px solid ButtonText; text-shadow: none; }
+  .champagne-arc .primary::before { display: none; }
+}

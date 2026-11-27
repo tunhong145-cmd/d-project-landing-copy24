@@ -1,0 +1,238 @@
+/* Copper Dawn for C: brushed metal and enamel, over the original two-page flow. */
+html.c-copper-dawn {
+  --bg:#efded4; --surface:#fff8f2; --surface-soft:#f5e5db;
+  --text:#352018; --text-soft:#634638; --line:#d0ae9e;
+  --accent:#9b512f; --accent-strong:#73371f; --accent-soft:#f2d8ca;
+  --accent-ink:#65311d; --danger:#9c273c;
+  --shadow:0 14px 38px #67382222;
+  --edge:#ffffffba; --warm-shadow:#56271130;
+  --card-wash:linear-gradient(148deg,#fff9f3,#f5e5dc);
+  --banner-wash:linear-gradient(90deg,#fae9e2 0%,#fae9e2ed 32%,#f5d9ca45 65%,transparent 94%);
+  --metal-wash:linear-gradient(104deg,#f6decbe8,#f8d7badd 45%,#edc0a1de 95%);
+  --metal-ink:#381e14;
+  --focus:#8a4028;
+}
+
+.c-copper-dawn body {
+  background:radial-gradient(ellipse at 48% 0,var(--surface),var(--bg) 76%);
+}
+.c-copper-dawn .site-header { backdrop-filter:none; }
+.c-copper-dawn .wordmark-mark {
+  color:#fff3e6;
+  background:linear-gradient(145deg,#a35c38,#71351f);
+  box-shadow:inset 0 1px #e8ac84,0 2px 5px var(--warm-shadow);
+}
+.c-copper-dawn .amount-main { padding-block:22px 32px; }
+.c-copper-dawn .amount-shell {
+  max-width:880px;
+  padding:22px;
+  background:var(--card-wash);
+  box-shadow:inset 0 1px var(--edge),var(--shadow);
+}
+.c-copper-dawn .flow-nav { margin-bottom:17px; }
+.c-copper-dawn .amount-hero { gap:14px; }
+.c-copper-dawn .amount-intro {
+  isolation:isolate;
+  position:relative;
+  overflow:hidden;
+  min-height:202px;
+  padding:22px 24px;
+  border:1px solid var(--line);
+  background:var(--surface-soft);
+}
+.c-copper-dawn .copper-hero,
+.c-copper-dawn .amount-intro::before {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+.c-copper-dawn .copper-hero {
+  z-index:-2;
+  object-fit:cover;
+  object-position:67% 72%;
+}
+.c-copper-dawn .amount-intro::before {
+  content:"";
+  z-index:-1;
+  background:var(--banner-wash);
+}
+.c-copper-dawn .amount-intro h1 {
+  font-size:clamp(34px,5.3vw,53px);
+  line-height:1.07;
+  color:var(--text);
+}
+.c-copper-dawn .amount-intro h1 strong { color:inherit; }
+.c-copper-dawn .amount-intro .eyebrow {
+  margin-bottom:7px;
+  padding-inline-start:8px;
+  border-inline-start:2px solid var(--accent);
+}
+.c-copper-dawn .amount-intro > p:last-child {
+  margin-top:11px;
+  font-size:14px;
+  font-weight:700;
+  color:var(--text);
+}
+.c-copper-dawn .limit-visual {
+  min-height:202px;
+  color:var(--metal-ink);
+  border:1px solid #bb856a;
+  background:var(--metal-wash),url("copper-brushed.webp") center/cover,#e6b497;
+  box-shadow:inset 0 1px #fff9f0,inset 0 -2px 1px #ae695844,0 4px 8px var(--warm-shadow);
+}
+.c-copper-dawn .limit-visual::after,
+.c-copper-dawn .amount-summary::before { display:none; }
+.c-copper-dawn .limit-visual > :is(span,b,p),
+.c-copper-dawn .limit-visual b { color:var(--metal-ink); }
+.c-copper-dawn .limit-visual strong { font-variant-numeric:tabular-nums; }
+.c-copper-dawn .amount-option {
+  min-height:93px;
+  padding:13px 10px;
+  border-width:1px;
+  background:var(--card-wash);
+  box-shadow:inset 0 1px var(--edge),0 2px 4px var(--warm-shadow);
+}
+.c-copper-dawn .amount-option small { margin-bottom:7px; }
+.c-copper-dawn .amount-option.selected {
+  color:#fff8ec;
+  border-color:#77361e;
+  background:linear-gradient(155deg,#9a522f,#773620) #773620;
+  box-shadow:inset 0 1px #f9d1ad90,inset 0 -2px #713516,0 2px 0 #64301c,0 4px 8px var(--warm-shadow);
+}
+.c-copper-dawn .amount-option.selected small { color:#fff0db; }
+.c-copper-dawn .amount-option.selected .amount-number,
+.c-copper-dawn .amount-option.selected .amount-number span { color:#fff3e8; }
+.c-copper-dawn .featured-label { background:var(--accent-ink); color:#fff2e2; }
+.c-copper-dawn .amount-option.selected .featured-label {
+  color:#572716;
+  background:#fbe2cb;
+}
+.c-copper-dawn .selection-bar {
+  border:1px solid var(--line);
+  box-shadow:inset 0 1px var(--edge);
+}
+
+/* The beveled rim and textured face are drawn independently to give one clear press state. */
+.c-copper-dawn :is(.primary-button,.line-button) {
+  --bevel:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);
+  --face:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px);
+  position:relative;
+  isolation:isolate;
+  padding:8px 12px 14px;
+  border-radius:3px;
+  color:#30170d;
+  background:none;
+  box-shadow:none;
+  text-shadow:0 1px #ffe0ba;
+  filter:drop-shadow(0 4px 4px #60342055);
+  transition:transform .14s ease;
+}
+.c-copper-dawn :is(.primary-button,.line-button)::before,
+.c-copper-dawn :is(.primary-button,.line-button)::after {
+  content:"";
+  position:absolute;
+  pointer-events:none;
+}
+.c-copper-dawn :is(.primary-button,.line-button)::before {
+  z-index:-2;
+  inset:0;
+  clip-path:var(--bevel);
+  background:conic-gradient(from 30deg at 50% 44%,#ffefce,#ffdcac 42deg,#b46c46 64deg,#e6ab83 111deg,#9b5739 134deg,#51230f 178deg,#6e3119 230deg,#d48860 252deg,#9d5430 291deg,#ffe3bd 320deg,#ffefce);
+}
+.c-copper-dawn :is(.primary-button,.line-button)::after {
+  z-index:-1;
+  inset:3px 4px 7px;
+  clip-path:var(--face);
+  background:linear-gradient(180deg,#fff6da7d,#ffd8ad2c 11%,transparent 42%,#7e431d29 98%),
+    linear-gradient(103deg,#e9986959,#ffbe8e40 29%,#ffc89912 63%,#9b50272e),
+    url("copper-brushed.webp") 51% 49%/cover,#dfa17b;
+  box-shadow:inset 0 1px #ffeac1,inset 1px 0 #ffdfb7,inset -1px 0 #9d5030,inset 0 -1px #f4a97d;
+}
+.c-copper-dawn :is(.primary-button,.line-button):hover:not(:disabled) { background:none; }
+.c-copper-dawn :is(.primary-button,.line-button):hover:not(:disabled)::after { filter:brightness(1.06); }
+.c-copper-dawn :is(.primary-button,.line-button):active:not(:disabled) { transform:translateY(2px) scale(.992); }
+.c-copper-dawn :is(.primary-button,.line-button):active:not(:disabled)::after { inset-block:4px 5px; }
+.c-copper-dawn .primary-button:disabled {
+  opacity:1;
+  color:var(--text-soft);
+  text-shadow:none;
+  filter:none;
+  background:var(--surface);
+  border:1px dashed var(--line);
+  border-radius:var(--radius-control);
+  padding-block:10px;
+}
+.c-copper-dawn .primary-button:disabled::before,
+.c-copper-dawn .primary-button:disabled::after { display:none; }
+.c-copper-dawn :is(button,a,input):focus-visible,
+.c-copper-dawn .warning-option:has(input:focus-visible) { outline:2px solid var(--focus); outline-offset:3px; }
+.c-copper-dawn :is(.form-panel,.amount-summary,.success-panel) { background:var(--card-wash); }
+.c-copper-dawn .warning-option input:checked + span {
+  border-color:var(--accent-strong);
+  background:var(--accent-soft);
+  box-shadow:inset 0 0 0 1px var(--accent-strong);
+}
+.c-copper-dawn .warning-option input:checked + span b::after {
+  content:"✓";
+  float:inline-end;
+  color:var(--accent-strong);
+}
+.c-copper-dawn :is(.age-eligible,.completion-alert) {
+  color:var(--text);
+  background:var(--accent-soft);
+  border-color:var(--line);
+}
+.c-copper-dawn :is(.age-ineligible,.warning-help.is-rejected) { color:var(--danger); }
+.c-copper-dawn .age-ineligible { background:var(--surface); border-color:var(--line); }
+.c-copper-dawn :is(.success-mark,.line-steps span) { background:var(--accent-ink); color:#fff1e2; }
+
+@media (max-width:620px) {
+  .c-copper-dawn .amount-main { padding-block:10px 22px; }
+  .c-copper-dawn .amount-shell { padding:13px 12px 17px; }
+  .c-copper-dawn .flow-nav { margin-bottom:12px; }
+  .c-copper-dawn .amount-hero { gap:8px; }
+  .c-copper-dawn .amount-intro { min-height:146px; padding:14px 16px; }
+  .c-copper-dawn .amount-intro h1 { font-size:clamp(30px,9vw,42px); }
+  .c-copper-dawn .amount-intro > p:last-child { font-size:12px; margin-top:8px; max-width:16em; }
+  .c-copper-dawn .limit-visual { min-height:70px; padding:10px 13px; }
+  .c-copper-dawn .limit-visual strong { font-size:43px; }
+  .c-copper-dawn .limit-visual b { font-size:16px; padding-bottom:1px; }
+  .c-copper-dawn .limit-visual p { font-size:11px; }
+  .c-copper-dawn .amount-grid { margin-top:10px; gap:8px; }
+  .c-copper-dawn .amount-option { min-height:69px; padding:8px 9px; }
+  .c-copper-dawn .amount-option small { margin-bottom:4px; }
+  .c-copper-dawn .selection-bar { padding:8px; gap:7px; }
+  .c-copper-dawn .selection-message { min-height:32px; }
+  .c-copper-dawn .selection-message strong { font-size:16px; }
+  .c-copper-dawn .amount-continue { min-height:52px; }
+}
+@media (prefers-color-scheme:dark) {
+  html.c-copper-dawn {
+    --bg:#251916; --surface:#372820; --surface-soft:#443026;
+    --text:#fff0e5; --text-soft:#dfc1ae; --line:#8e6451;
+    --accent:#eda884; --accent-strong:#f9c8a8; --accent-soft:#503226;
+    --accent-ink:#754628; --danger:#ffb7bd;
+    --shadow:0 14px 38px #170b0775;
+    --edge:#ffe5d22b; --warm-shadow:#170b077d;
+    --card-wash:linear-gradient(154deg,#3a2b25,#2e221d);
+    --banner-wash:linear-gradient(90deg,#30221df5,#30221de0 42%,#30221d22 90%);
+    --metal-wash:linear-gradient(104deg,#633823fa,#694430e9 63%,#79543da8);
+    --metal-ink:#fff3e6;
+    --focus:#ffc7a5;
+  }
+  .c-copper-dawn .copper-hero { filter:brightness(.7); }
+  .c-copper-dawn .limit-visual { box-shadow:inset 0 1px var(--edge),0 4px 8px var(--warm-shadow); }
+}
+@media (forced-colors:active) {
+  .c-copper-dawn :is(.primary-button,.line-button) {
+    color:ButtonText;
+    background:ButtonFace;
+    border:2px solid ButtonText;
+    filter:none;
+    text-shadow:none;
+  }
+  .c-copper-dawn :is(.primary-button,.line-button)::before,
+  .c-copper-dawn :is(.primary-button,.line-button)::after { display:none; }
+}
